@@ -1,4 +1,8 @@
-<?php include'config.php';?>
+<?php
+ include'config.php';
+ include'classes/database.php';
+//  print_r(PDO::getAvailableDrivers());
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,15 +10,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>my tasks list</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+
 </head>
 <body>
-    <header>
-        <div>myTasks</div>
-        <nav>
-            <a href="">Home</a>
-            <a href="">Register</a>
-        </nav>
-    </header>
+    
+    <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link disabled">myTasks</a>
+        </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="http://localhost/myTasks">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="index.php?page=register">Register</a>
+  </li>
+  <!-- <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li> -->
+</ul>
     
     <main>
         <?php
@@ -45,21 +59,12 @@
                 include'pages/delete_list.php';  
             }
         ?>
-    <form action="">
-        <fieldset>login form
-            <label for="user_name">user name</label>
-            <input type="text" name="user_name">
-            <label for="password">password</label>
-            <input type="text" name="password">
-            <input type="submit" value="login">
-        </fieldset>
-    </form>
-       
+   
     </main>
     <footer>
         &copy; Walaa Alomari
     </footer>
 
-
+<script src="bootstrap.js"></script>
 </body>
 </html>
