@@ -37,11 +37,30 @@ if(empty($username)){
 if(empty($password1)){
     $errors[]="password is required"; 
 }
-$stmt=$db_conn->prepare("insert into users (first_name,last_name,email,username,password)");
+//make database object
+$database= new Database ;
 
+//check if the username have been used 
+$database->query('select username from users where username:username');
+$database->bind(':username',$username);
 
+//excute the query 
+$database->excute();
+//check if user name is used 
+if ($database->rowCount() > 0){
+$errors[]="sorry this user name is used";
+}
 
+//check if email is used 
+$database->query('select email from users where email:email');
+$database->bind(':email',$email);
 
+$database->excute();
+
+//check if email is used 
+if ($database->rowCount() > 0){
+    $errors[]="sorry this email is used";
+    }
 
 }
 
@@ -67,5 +86,6 @@ $stmt=$db_conn->prepare("insert into users (first_name,last_name,email,username,
 
     label,input{
         display:block;
+        
     }
 </style>

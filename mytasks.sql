@@ -14,7 +14,7 @@ CREATE TABLE if not exists lists(
    list_name varchar (255),
    list_body text ,
     list_user varchar (255),
-   register_date timestamp
+   create_date timestamp
 )
 ;
 CREATE TABLE if not exists tasks(
